@@ -23,6 +23,6 @@
     "esbuild": "^0.27.3"
   },
   "dependencies": {
-    "k6-modern-report": "file:../k6-html-reporter"
+    "k6-modern-report": "^1.0.1"
   }
 }

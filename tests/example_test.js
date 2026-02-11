@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { check } from 'k6';
-import { generateReport } from 'k6-modern-report';
+import { generateReport } from '../node_modules/k6-modern-report/src/index.js';
 
 export default function () {
     const baseUrl = 'https://test.k6.io';

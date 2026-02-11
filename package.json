@@ -1,6 +1,6 @@
 {
   "name": "k6-generic-performance-testing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generic performance testing framework using k6",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "esbuild": "^0.27.3"
   },
   "dependencies": {
-    "k6-html-reporter-generic": "file:../k6-html-reporter"
+    "k6-modern-report": "file:../k6-html-reporter"
   }
 }

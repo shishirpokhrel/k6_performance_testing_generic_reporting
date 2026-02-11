@@ -221,8 +221,8 @@ var require_k6_summary = __commonJS({
           return ["[no data]"];
       }
     }
-    function summarizeMetrics(options2, data, decorate) {
-      var indent = options2.indent + "  ";
+    function summarizeMetrics(options, data, decorate) {
+      var indent = options.indent + "  ";
       var result = [];
       var names = [];
       var nameLenMax = 0;
@@ -231,7 +231,7 @@ var require_k6_summary = __commonJS({
       var nonTrendExtras = {};
       var nonTrendExtraMaxLens = [0, 0];
       var trendCols = {};
-      var numTrendColumns = options2.summaryTrendStats.length;
+      var numTrendColumns = options.summaryTrendStats.length;
       var trendColMaxLens = new Array(numTrendColumns).fill(0);
       forEach(data.metrics, function(name2, metric2) {
         names.push(name2);
@@ -243,12 +243,12 @@ var require_k6_summary = __commonJS({
         if (metric2.type == "trend") {
           var cols = [];
           for (var i = 0; i < numTrendColumns; i++) {
-            var tc = options2.summaryTrendStats[i];
+            var tc = options.summaryTrendStats[i];
             var value = metric2.values[tc];
             if (tc === "count") {
               value = value.toString();
             } else {
-              value = humanizeValue(value, metric2, options2.summaryTimeUnit);
+              value = humanizeValue(value, metric2, options.summaryTimeUnit);
             }
             var valLen = strWidth(value);
             if (valLen > trendColMaxLens[i]) {
@@ -259,7 +259,7 @@ var require_k6_summary = __commonJS({
           trendCols[name2] = cols;
           return;
         }
-        var values = nonTrendMetricValueForSum(metric2, options2.summaryTimeUnit);
+        var values = nonTrendMetricValueForSum(metric2, options.summaryTimeUnit);
         nonTrendValues[name2] = values[0];
         var valueLen = strWidth(values[0]);
         if (valueLen > nonTrendValueMaxLen) {
@@ -279,7 +279,7 @@ var require_k6_summary = __commonJS({
           var cols = trendCols[name2];
           var tmpCols = new Array(numTrendColumns);
           for (var i = 0; i < cols.length; i++) {
-            tmpCols[i] = options2.summaryTrendStats[i] + "=" + decorate(cols[i], palette.cyan) + " ".repeat(trendColMaxLens[i] - strWidth(cols[i]));
+            tmpCols[i] = options.summaryTrendStats[i] + "=" + decorate(cols[i], palette.cyan) + " ".repeat(trendColMaxLens[i] - strWidth(cols[i]));
           }
           return tmpCols.join(" ");
         }
@@ -328,8 +328,8 @@ var require_k6_summary = __commonJS({
       }
       return result;
     }
-    function generateTextSummary(data, options2) {
-      var mergedOpts = Object.assign({}, defaultOptions, data.options, options2);
+    function generateTextSummary(data, options) {
+      var mergedOpts = Object.assign({}, defaultOptions, data.options, options);
       var lines = [];
       var decorate = function(text) {
         return text;
@@ -362,7 +362,7 @@ var require_k6_summary = __commonJS({
         return replacements[char];
       });
     }
-    function generateJUnitXML(data, options2) {
+    function generateJUnitXML(data, options) {
       var failures = 0;
       var cases = [];
       forEach(data.metrics, function(metricName, metric) {
@@ -382,7 +382,7 @@ var require_k6_summary = __commonJS({
           }
         });
       });
-      var name = options2 && options2.name ? escapeHTML(options2.name) : "k6 thresholds";
+      var name = options && options.name ? escapeHTML(options.name) : "k6 thresholds";
       return '<?xml version="1.0"?>\n<testsuites tests="' + cases.length + '" failures="' + failures + '">\n<testsuite name="' + name + '" tests="' + cases.length + '" failures="' + failures + '">' + cases.join("\n") + "\n</testsuite >\n</testsuites >";
     }
     exports2.humanizeValue = humanizeValue;
@@ -395,73 +395,14 @@ var require_k6_summary = __commonJS({
 var example_test_exports = {};
 __export(example_test_exports, {
   default: () => example_test_default,
-  handleSummary: () => handleSummary,
-  options: () => options
+  handleSummary: () => handleSummary
 });
 module.exports = __toCommonJS(example_test_exports);
-
-// utils/generic-requests.js
 var import_http = __toESM(require("k6/http"));
 var import_k6 = require("k6");
-var api = {
-  /**
-   * Generic GET request
-   * @param {string} url - Request URL
-   * @param {object} [headers={}] - Request headers
-   * @param {object} [params={}] - Additional k6 params (tags, timeouts, etc.)
-   */
-  get: (url, headers = {}, params = {}) => {
-    const requestParams = { ...params, headers: { ...headers, ...params.headers || {} } };
-    const res = import_http.default.get(url, requestParams);
-    (0, import_k6.check)(res, { "status is 200": (r) => r.status === 200 });
-    return res;
-  },
-  /**
-   * Generic POST request
-   * @param {string} url - Request URL
-   * @param {any} body - Request body (automatically JSON stringified if object)
-   * @param {object} [headers={}] - Request headers
-   * @param {object} [params={}] - Additional k6 params
-   */
-  post: (url, body, headers = {}, params = {}) => {
-    const payload = typeof body === "object" ? JSON.stringify(body) : body;
-    const requestParams = { ...params, headers: { ...headers, ...params.headers || {} } };
-    const res = import_http.default.post(url, payload, requestParams);
-    (0, import_k6.check)(res, { "status is 2xx": (r) => r.status >= 200 && r.status < 300 });
-    return res;
-  },
-  /**
-   * Generic PUT request
-   * @param {string} url - Request URL
-   * @param {any} body - Request body
-   * @param {object} [headers={}] - Request headers
-   * @param {object} [params={}] - Additional k6 params
-   */
-  put: (url, body, headers = {}, params = {}) => {
-    const payload = typeof body === "object" ? JSON.stringify(body) : body;
-    const requestParams = { ...params, headers: { ...headers, ...params.headers || {} } };
-    const res = import_http.default.put(url, payload, requestParams);
-    (0, import_k6.check)(res, { "status is 2xx": (r) => r.status >= 200 && r.status < 300 });
-    return res;
-  },
-  /**
-   * Generic UPDATE (PATCH) request
-   * @param {string} url - Request URL
-   * @param {any} body - Request body
-   * @param {object} [headers={}] - Request headers
-   * @param {object} [params={}] - Additional k6 params
-   */
-  update: (url, body, headers = {}, params = {}) => {
-    const payload = typeof body === "object" ? JSON.stringify(body) : body;
-    const requestParams = { ...params, headers: { ...headers, ...params.headers || {} } };
-    const res = import_http.default.patch(url, payload, requestParams);
-    (0, import_k6.check)(res, { "status is 2xx": (r) => r.status >= 200 && r.status < 300 });
-    return res;
-  }
-};
 
 // ../k6-html-reporter/src/modern-reporter.js
-function htmlReport2(data) {
+function htmlReport(data) {
   const title = `eSewa Performance Testing Report - ${(/* @__PURE__ */ new Date()).toISOString()}`;
   const metrics = data.metrics;
   const checks = data.root_group.checks || [];
@@ -1098,70 +1039,23 @@ function htmlReport2(data) {
 var import_k6_summary = __toESM(require_k6_summary());
 function generateReport(data, filename = "result.html") {
   return {
-    [filename]: htmlReport2(data),
+    [filename]: htmlReport(data),
     stdout: (0, import_k6_summary.textSummary)(data, { indent: " ", enableColors: true })
   };
 }
 
-// utils/reporting.js
-function generateReport2(data, filename = "result.html") {
-  return generateReport(data, filename);
-}
-
-// config/user_config.js
-var userConfig = {
-  // Target Base URL
-  baseUrl: "https://test-api.k6.io",
-  // Global Headers
-  headers: {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_TOKEN_HERE"
-    // Optional
-  },
-  // Test specific configurations
-  endpoints: {
-    get: "/public/crocodiles/",
-    post: "/user/register/",
-    put: "/my/crocodiles/",
-    update: "/my/crocodiles/"
-  },
-  // Payload for POST/PUT requests
-  payloads: {
-    post: {
-      username: "test_user_001",
-      first_name: "Test",
-      last_name: "User",
-      email: "test_user_001@example.com",
-      password: "123"
-    }
-  }
-};
-
 // tests/example_test.js
-var scenarios = JSON.parse(open("../config/scenarios.json"));
-var selectedScenario = __ENV.SCENARIO || "smoke";
-var options = {
-  scenarios: {
-    [selectedScenario]: scenarios[selectedScenario]
-  },
-  thresholds: {
-    http_req_failed: ["rate<0.05"],
-    // http errors should be less than 5%
-    http_req_duration: ["p(95)<2000"]
-    // 95% of requests should be below 2000ms
-  }
-};
 function example_test_default() {
-  const baseUrl = userConfig.baseUrl;
-  const headers = userConfig.headers;
-  console.log(`Running ${selectedScenario} test on ${baseUrl}`);
-  api.get("https://test.k6.io", {}, { tags: { name: "SimpleDemo" } });
+  const baseUrl = "https://test.k6.io";
+  const res = import_http.default.get(baseUrl);
+  (0, import_k6.check)(res, {
+    "status is 200": (r) => r.status === 200
+  });
 }
 function handleSummary(data) {
-  return generateReport2(data, `reports/performance-test-report.html`);
+  return generateReport(data, `reports/performance-test-report.html`);
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  handleSummary,
-  options
+  handleSummary
 });

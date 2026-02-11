@@ -2,6 +2,20 @@ import http from 'k6/http';
 import { check } from 'k6';
 import { generateReport } from '../node_modules/k6-modern-report/src/index.js';
 
+export const options = {
+    scenarios: {
+        spike: {
+            executor: 'ramping-vus',
+            startVUs: 0,
+            stages: [
+                { duration: '10s', target: 100 },
+                { duration: '1m', target: 100 },
+                { duration: '10s', target: 0 }
+            ]
+        }
+    }
+};
+
 export default function () {
     const baseUrl = 'https://test.k6.io';
 

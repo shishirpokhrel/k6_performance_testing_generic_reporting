@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eSewa Performance Testing Report - 2026-02-11T17:01:59.002Z</title>
+    <title>eSewa Performance Testing Report - 2026-02-11T17:21:05.084Z</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -170,12 +170,12 @@
         <header class="flex justify-between items-center mb-6 border-b dark:border-gray-700 pb-4">
             <div>
                 <h1 class="text-3xl font-extrabold text-blue-600 dark:text-blue-400">K6 Performance Report</h1>
-                <p class="text-sm text-gray-500 mt-1">02/11/2026, 22:46:59 | Duration: 1.6s</p>
+                <p class="text-sm text-gray-500 mt-1">02/11/2026, 23:06:05 | Duration: 80.3s</p>
             </div>
             <div class="flex items-center gap-4 no-pdf">
                  <div class="text-right mr-4">
                     <div class="text-xs text-gray-500">Score</div>
-                    <div class="text-2xl font-bold text-green-600">100</div>
+                    <div class="text-2xl font-bold text-green-600">95</div>
                  </div>
                  <button onclick="downloadPDF()" class="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition shadow-md font-medium text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -194,12 +194,12 @@
                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800">Excellent</span>
             </div>
             <div class="mb-4 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 p-3 rounded border border-gray-100 dark:border-gray-700 leading-relaxed">
-                The system handled a load of <strong>1.25 RPS</strong> using 1 max VUs. Performance was <strong class="text-green-600">Excellent (100/100)</strong>. All reliability and latency targets were met. Latency was good (P95: 356.03ms).
+                The system handled a load of <strong>362.75 RPS</strong> using 100 max VUs. Performance was <strong class="text-green-600">Excellent (95/100)</strong>. All reliability and latency targets were met. Latency was good (P95: 358.62ms).
             </div>
              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded border border-red-100 dark:border-red-900/30">
                     <h3 class="font-bold text-red-700 dark:text-red-400 text-sm mb-2">⚠ Issues</h3>
-                    <p class="text-xs text-green-600 italic">None detected.</p>
+                    <ul class="list-disc list-inside space-y-1 text-xs text-gray-700 dark:text-gray-300"><li>Load Instability: VUs dropped from 100 to 4.</li></ul>
                 </div>
                  <div class="bg-green-50 dark:bg-green-900/10 p-3 rounded border border-green-100 dark:border-green-900/30">
                     <h3 class="font-bold text-green-700 dark:text-green-400 text-sm mb-2">✓ Highlights</h3>
@@ -212,8 +212,8 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">Requests</div>
-                <div class="text-2xl font-bold mt-1">2</div>
-                <div class="text-xs text-blue-500 mt-1">1.3/s</div>
+                <div class="text-2xl font-bold mt-1">29126</div>
+                <div class="text-xs text-blue-500 mt-1">362.7/s</div>
             </div>
              <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">Failures</div>
@@ -222,29 +222,29 @@
             </div>
              <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">P95 Latency</div>
-                <div class="text-2xl font-bold mt-1 text-purple-600">356.03<span class="text-sm text-gray-400 font-normal">ms</span></div>
-                <div class="text-xs text-gray-400 mt-1">Avg: 233.57ms</div>
+                <div class="text-2xl font-bold mt-1 text-purple-600">358.62<span class="text-sm text-gray-400 font-normal">ms</span></div>
+                <div class="text-xs text-gray-400 mt-1">Avg: 237.82ms</div>
             </div>
             <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">Throughput</div>
-                <div class="text-2xl font-bold mt-1 text-blue-600">1.25 <span class="text-sm font-normal text-gray-400">RPS</span></div>
+                <div class="text-2xl font-bold mt-1 text-blue-600">362.75 <span class="text-sm font-normal text-gray-400">RPS</span></div>
                 <div class="text-xs text-gray-400 mt-1">APDEX: 1.00</div>
             </div>
              <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">Network I/O</div>
-                <div class="text-lg font-bold mt-1 text-gray-700 dark:text-gray-300">⬇ 7.48 KB/s</div>
-                <div class="text-xs text-gray-400 mt-1">⬆ 0.67 KB/s</div>
+                <div class="text-lg font-bold mt-1 text-gray-700 dark:text-gray-300">⬇ 659.60 KB/s</div>
+                <div class="text-xs text-gray-400 mt-1">⬆ 17.25 KB/s</div>
             </div>
             <!-- Deep Dive Row -->
              <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">Latency Details</div>
-                <div class="text-sm font-bold mt-1 text-gray-700 dark:text-gray-300">Med: 233.57ms</div>
+                <div class="text-sm font-bold mt-1 text-gray-700 dark:text-gray-300">Med: 314.02ms</div>
                 <div class="text-xs text-gray-400">P99: 0.00ms</div>
             </div>
              <div class="bg-white dark:bg-cardbg rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 card">
                 <div class="text-xs text-gray-500 uppercase">Time Spent</div>
-                <div class="text-sm font-bold mt-1 text-gray-700 dark:text-gray-300">Wait: 233.12ms</div>
-                <div class="text-xs text-gray-400">Recv: 0.22ms</div>
+                <div class="text-sm font-bold mt-1 text-gray-700 dark:text-gray-300">Wait: 231.10ms</div>
+                <div class="text-xs text-gray-400">Recv: 6.66ms</div>
             </div>
         </div>
 
@@ -287,104 +287,104 @@
                         
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_duration</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">233.57</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">97.51</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">233.57</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">342.42</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">356.03</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">237.82</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">70.36</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">314.02</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">343.65</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">358.62</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">369.63</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">2423.34</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_waiting</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">233.12</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">96.97</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">233.12</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">342.04</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">355.65</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">231.10</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">70.22</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">313.64</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">342.81</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">354.65</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">369.27</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">2423.11</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_connecting</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">221.14</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">78.22</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">221.14</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">335.49</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">349.78</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1.64</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">364.07</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1336.74</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_tls_handshaking</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">236.21</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">94.07</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">236.21</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">349.92</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">364.13</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1.60</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">378.35</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">2423.56</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_sending</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.24</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.17</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.24</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.29</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.30</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.06</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.01</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.05</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.08</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.11</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.30</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">10.17</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_receiving</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.22</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.20</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.22</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.23</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.24</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">6.66</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.01</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.05</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.18</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.84</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.24</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1613.39</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">http_req_blocked</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">563.13</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">239.38</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">563.13</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">822.13</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">854.51</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">3.25</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">886.88</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.00</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">0.00</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">2776.26</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
     
       <tr>
         <td class="font-medium text-gray-900 dark:text-white border-b dark:border-gray-700 p-2 text-xs">iteration_duration</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1595.01</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1595.01</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1595.01</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1595.01</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1595.01</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">482.34</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">380.98</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">413.56</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">476.62</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">817.68</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
-        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">1595.01</td>
+        <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">3641.86</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
         <td class="text-right border-b dark:border-gray-700 p-2 text-xs font-mono">-</td>
       </tr>
@@ -407,7 +407,7 @@
                             <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs">
                                 <span class="truncate pr-2" title="status is 200">✅ status is 200</span>
                                 <div class="flex-shrink-0 font-mono">
-                                    <span class="text-green-600">1</span> / <span class="text-red-600">0</span>
+                                    <span class="text-green-600">14563</span> / <span class="text-red-600">0</span>
                                 </div>
                             </div>
                         
@@ -476,7 +476,7 @@
         };
 
         const ctxTime = document.getElementById('responseTimeChart').getContext('2d');
-        const mDuration = {"avg":233.574,"min":97.513,"med":233.57399999999998,"max":369.635,"p(90)":342.4228,"p(95)":356.02889999999996};
+        const mDuration = {"med":314.017,"max":2423.344,"p(90)":343.6535,"p(95)":358.61949999999996,"avg":237.8184167410547,"min":70.358};
         
         Chart.defaults.color = '#6b7280';
         Chart.defaults.borderColor = 'rgba(229, 231, 235, 0.2)';
@@ -525,7 +525,7 @@
             data: {
                 labels: ['Success', 'Failed'],
                 datasets: [{
-                    data: [2, 0],
+                    data: [29126, 0],
                     backgroundColor: ['#10b981', '#ef4444'],
                     borderWidth: 0
                 }]

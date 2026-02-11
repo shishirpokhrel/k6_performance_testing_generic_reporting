@@ -1,0 +1,28 @@
+{
+  "name": "k6-generic-performance-testing",
+  "version": "1.0.0",
+  "description": "Generic performance testing framework using k6",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "esbuild tests/example_test.js --bundle --outfile=dist/test.js --external:k6 --external:k6/* --platform=node",
+    "test": "npm run bundle && k6 run dist/test.js",
+    "test:smoke": "npm run bundle && k6 run -e SCENARIO=smoke dist/test.js",
+    "test:load": "npm run bundle && k6 run -e SCENARIO=load dist/test.js",
+    "test:stress": "npm run bundle && k6 run -e SCENARIO=stress dist/test.js",
+    "test:spike": "npm run bundle && k6 run -e SCENARIO=spike dist/test.js"
+  },
+  "keywords": [
+    "k6",
+    "performance",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/k6": "^0.52.0",
+    "esbuild": "^0.27.3"
+  },
+  "dependencies": {
+    "k6-html-reporter-generic": "file:../k6-html-reporter"
+  }
+}
